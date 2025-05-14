@@ -36,6 +36,9 @@ public class ShipController : MonoBehaviour
     Text UpdatePoint;
 
 
+bool PowerUpActive = false;
+float PowerTime = 0f;
+
 
 
     void Start()
@@ -43,6 +46,9 @@ public class ShipController : MonoBehaviour
         currentHealth = maxHealth;
         hpBar.maxValue = maxHealth;
         hpBar.value = currentHealth;
+
+
+        
 
 
 
@@ -72,6 +78,23 @@ public class ShipController : MonoBehaviour
             timeSinceLastShot = 0;
             Instantiate(Boltprefab, GunPosition.position, Quaternion.identity);
         }
+
+        if (button2.Button2 == true)
+        {
+
+            
+
+        }
+
+       if (PowerUpActive == true){
+         PowerTime += Time.deltaTime;
+         if (PowerTime >5f){
+            PowerTime = 0;
+            PowerUpActive = false;
+            timeBetweenShots = 0.2f;
+         }
+       }
+
     }
 
     public void UpdatePoints(int p)
@@ -108,6 +131,22 @@ public class ShipController : MonoBehaviour
                 hpBar.value = currentHealth;
             }
         }
+
+    }
+
+
+    public void PowerShoot(Collider2D other)
+    {
+
+        if (other.tag == "PowerUp")
+        {
+            while (PowerTime>= 5f){
+            timeBetweenShots = 0.01f;
+             PowerUpActive = true;
+        }
+        
+
+    }
 
     }
 

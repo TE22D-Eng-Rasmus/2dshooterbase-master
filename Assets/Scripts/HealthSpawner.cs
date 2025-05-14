@@ -15,9 +15,10 @@ public class HealthSpawner : MonoBehaviour
     private float timeBetweenSpawn = 2.8f;
     private float timeSinceLastSpawn = 0;
 
-    void Start() { }
+    
+
     // Update is called once per frame
-    void Update()
+     void Update()
     {
         timeSinceLastSpawn += Time.deltaTime;
 

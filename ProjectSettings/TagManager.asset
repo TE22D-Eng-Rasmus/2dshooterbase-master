@@ -8,6 +8,7 @@ TagManager:
   - Health
   - Player2
   - Player3
+  - PowerUp
   layers:
   - Default
   - TransparentFX
